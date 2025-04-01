@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        
+        {{ form.username.label }}
+        {% if form.username.errors %}
+            {{ form.username() }}
+                {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+        {% else %}
+            {{ form.username() }}
+        {% endif %}
+
+        {{ form.password.label }}
+        {% if form.password.errors %}
+            {{ form.password() }}
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+        {% else %}
+            {{ form.password() }}
+        {% endif %}
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    
+    <div>
+        <small>
+            Need An Account? <a href="{{ url_for('register') }}">Sign Up Now</a>
+        </small>
+    </div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>All the recipes</h2>
+
+{% for recipe in recipes %}
+    <ul>
+        <li><a href="{{ url_for('recipe', recipe_id=recipe.id) }}">{{ recipe.title }} by {{ recipe.author.username}}</a></li>
+    </ul>
+{% endfor %}
+
+{% endblock content %}

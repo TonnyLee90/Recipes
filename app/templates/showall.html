@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>This page will show all the data in Table1 (User)</h1>
+<div class="container">
+    <div>
+        <h2>Table1 User</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <th>{{ user.id }}</th>
+                    <th>{{ user.username }}</th>
+                    <th>{{ user.password }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}
